@@ -3,6 +3,8 @@ import nodemailer from "nodemailer";
 import bodyParser from "body-parser";
 import cors from "cors";
 
+const port = process.env.PORT || 10000;
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -50,4 +52,4 @@ app.post("/verify-otp", (req, res) => {
   res.status(400).send({ success: false, message: "Invalid OTP" });
 });
 
-app.listen(3000, () => console.log("✅ Server running at http://localhost:3000"));
+app.listen(port, () => console.log("✅ Server running at http://localhost:" + port));
